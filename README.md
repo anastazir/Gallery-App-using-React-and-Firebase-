@@ -2,12 +2,13 @@
 
 Using Reactjs for front end and the unsplash API to fetch images.
 
-## Tech Stack
+## Tech stack used
+[![React Badge](https://img.shields.io/badge/-React-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=61DBFB)](#)
+[![Tailwind_CSS Badge](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?style=for-the-badge&labelColor=black&logo=tailwind-css&logoColor=)](#)
+[![Firebase-UI Badge](https://img.shields.io/badge/-firebase-23039BE5?style=for-the-badge&labelColor=black&logo=firebase&logoColor=)](#)
+[![Tensorflow Badge](https://img.shields.io/badge/-Tensorflow-%23FF6F00?style=for-the-badge&labelColor=black&logo=tensorflow&logoColor=)](#)
+[![Framer Badge](https://img.shields.io/badge/-Framer-black?style=for-the-badge&labelColor=black&logo=framer&logoColor=)](#)
 
-- Reactjs for front end
-- Tailwind css and frame motion for styles
-- Firebase authentication
-- Tensorflowjs to detect object name
 
 ## Screenshots
 
