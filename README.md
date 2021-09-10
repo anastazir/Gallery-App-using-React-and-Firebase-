@@ -12,11 +12,13 @@ Using Reactjs for front end and the unsplash API to fetch images.
 
 ## Screenshots
 
-![App Screenshot](https://github.com/anastazir/images/blob/master/Gallery-project-1.png?raw=true)
+![App Screenshot](https://github.com/anastazir/images/blob/master/Gallery-project-5.png?raw=true)
 
-![App Screenshot](https://github.com/anastazir/images/blob/master/Gallery-project-2.png?raw=true)
+![App Screenshot](https://github.com/anastazir/images/blob/master/Gallery-project-7.png?raw=true)
 
-![App Screenshot](https://github.com/anastazir/images/blob/master/Gallery-project-4.png?raw=true)
+![App Screenshot](https://github.com/anastazir/images/blob/master/Gallery-project-8.png?raw=true)
+
+![App Screenshot](https://github.com/anastazir/images/blob/master/Gallery-project-9.png?raw=true)
 
 # `Website Link`
 
