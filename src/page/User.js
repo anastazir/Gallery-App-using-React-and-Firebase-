@@ -41,46 +41,45 @@ export default function User() {
     }
 
     function ShowImage(){
-        // initial={{ opacity: 0 }}
-        //       animate={{ opacity: 1 }}
-            return (
-                <div className="flex flex-wrap " >
+        return (
+            <div className="flex flex-wrap " >
                 <AnimateSharedLayout type="switch">
                 { Images.map((image,index)=>(
-                <motion.div className="w-1/5 p-1 border flex justify-center"
-              key={index}
-              layoutId={index}>
-               <Image 
-               show={() => setShowPreview(index)}
-               image={image} 
-                handleRemove={handleRemove}
-                 index={index}
-                 />
-                  </motion.div>))}
+                    <motion.div className="w-1/5 p-1 border flex justify-center"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        key={index}
+                        layoutId={index}>
+                    <Image 
+                        show={() => setShowPreview(index)}
+                        image={image} 
+                        handleRemove={handleRemove}
+                        index={index} />
+                    </motion.div>))  }
                 </AnimateSharedLayout>      
             </div>   
-            )
+        )
     }
 
     return (
         <div>
            <ShowImage/>
            <div className='flex justify-between my-5'>
-                        <div className='w-full'>
-                            <input
-                            autoComplete='off'
-                            placeholder='             Enter Query'
-                            className='p-2 border-gray-800 shadow rounded bg-black w-full text-center'
-                            ref={inputRef}
-                            id='inputBox'  
-                            type='text'  
-                            onChange={handleInputChange}></input>
-                        </div>
-                        <div>
-                            <button className='p-1 bg-green-600 text-white  ' onClick={handleSearch}>Search</button>
-                        </div>
+                <div className='w-full'>
+                    <input
+                    autoComplete='off'
+                    placeholder='             Enter Query'
+                    className='p-2 border-gray-800 shadow rounded bg-black w-full text-center'
+                    ref={inputRef}
+                    id='inputBox'  
+                    type='text'  
+                    onChange={handleInputChange}></input>
+                </div>
+                <div>
+                    <button className='p-1 bg-green-600 text-white  ' onClick={handleSearch}>Search</button>
+                </div>
                        
-                    </div>
+            </div>
         </div>
     )
 }
