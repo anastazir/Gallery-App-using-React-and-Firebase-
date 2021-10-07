@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useRef,useState } from 'react'
 import useTFClassify from "../utils/hooks/useTFClassify";
+import Backdrop from './Backdrop';
 
 export default function Image({image,handleRemove,index}) {
     const imageRef =useRef()
@@ -28,7 +29,8 @@ export default function Image({image,handleRemove,index}) {
           </div>
           <AnimatePresence>
             {showPreview && 
-              <motion.section 
+              <Backdrop onClick={()=>console.log('working') }>
+                <motion.section 
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1, rotate: 360, transition: { duration: 0.5 } }}
                   exit={{ opacity: 0, rotate: -360, transition: { duration: 0.5 } }}
@@ -36,7 +38,9 @@ export default function Image({image,handleRemove,index}) {
                   <div className="bg-white text-black">
                   <img className='rounded-md' onClick={()=>setShowPreview(false)} src={image} alt="" width='400' height='auto' />
                   </div>
-              </motion.section> }
+                </motion.section> 
+              </Backdrop>
+              }
           </AnimatePresence>
         </div>
     )
