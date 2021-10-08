@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState,useRef } from "react";
 import Image from "../components/image"
 import useFetchImage from "../utils/hooks/useFetchImage";
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+import { AnimateSharedLayout, motion } from "framer-motion";
 let newSearchText=null;
 export default function Images() {
     const [page,setPage]=useState(1)
@@ -29,20 +29,19 @@ export default function Images() {
             //       animate={{ opacity: 1 }}
         return (
             <div className="flex flex-wrap " >
-            <AnimateSharedLayout type="switch">
-            { Images.map((image,index)=>(
-            <motion.div className="w-1/5 p-1 border flex justify-center"
-            key={index}
-            layoutId={index}>
-            <Image 
-            show={() => setShowPreview(index)}
-            image={image.urls.small} 
-            handleRemove={handleRemove}
-                index={index}
-                />
-                </motion.div>))}
-            </AnimateSharedLayout>      
-        </div>   
+                <AnimateSharedLayout type="switch">
+                    {Images.map((image,index)=>(
+                    <motion.div className="w-1/5 p-1 border flex justify-center"
+                    key={index}
+                    layoutId={index}>
+                        <Image 
+                        show={() => setShowPreview(index)}
+                        image={image.urls.small} 
+                        handleRemove={handleRemove}
+                        index={index}/>
+                    </motion.div>))}
+                </AnimateSharedLayout>      
+            </div>   
         )
     }
 
@@ -59,24 +58,22 @@ export default function Images() {
         setPage(1)
         setSearchTerm(newSearchText)
     }
-    
+    function handleKeyDown(e){
+        if (e.key === 'Enter') {
+            setSearchTerm(newSearchText)
+        }
+    }
     return(
-        <section>
-
-        {errors}
-            
-            <ShowImage/>
-
-            {/* {console.log(errors)} */}
-
-            {
-                isLoading?<i className="fas fa-circle-notch fa-spin text-7xl" ></i>: (
-                    <div>
+    <section>
+        <ShowImage/>
+        {/* {console.log(errors)} */}
+        {
+            isLoading?<i className="fas fa-circle-notch fa-spin text-7xl" ></i>: (
+                <div>
                     <div className='w-7 h-7 rounded-2xl fab-con-top' onClick={scrollToTop}>
                         <i className='align-middle fas fa-arrow-up text-2xl cursor-pointer'></i>
                     </div>
-                        <button className='p-1 bg-green-600 text-white' onClick={() =>setPage(page+1)}>Load More?</button>
-                    
+                    <button className='p-1 bg-green-600 text-white' onClick={() =>setPage(page+1)}>Load More?</button>
                     <div className='flex justify-between my-5'>
                         <div className='w-full'>
                             <input
@@ -86,19 +83,16 @@ export default function Images() {
                             ref={inputRef}
                             id='inputBox'  
                             type='text'  
+                            onKeyDown={handleKeyDown}
                             onChange={handleInputChange}></input>
                         </div>
                         <div>
-                            <button className='p-1 bg-green-600 text-white  ' onClick={handleSearch}>Search</button>
+                            <button className='p-1 bg-green-600 text-white'  onClick={handleSearch}>Search</button>
                         </div>
-                       
                     </div>
-                    
-                    </div>
-                )
-            }
-            
-        </section>
-        
+                </div>
+            )
+        }
+    </section>
     )
 }
