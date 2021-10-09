@@ -8,5 +8,5 @@ export default function GuestRoute(props) {
     if(!isLoggedIn){
         return <Route {...props}  />
     }
-    return <Redirect to="/" />
+    return <Redirect to="/gallery" />
 }
