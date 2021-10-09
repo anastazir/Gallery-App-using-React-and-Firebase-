@@ -49,7 +49,7 @@ export default function User() {
             <div className="flex flex-wrap " >
                 <AnimateSharedLayout type="switch">
                 { Images.map((image,index)=>(
-                    <motion.div className="w-1/5 p-1 border flex justify-center"
+                    <motion.div className="xl:w-1/5 p-1 border flex justify-center md:w-1/3 sm:w-1/2"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         key={index}
