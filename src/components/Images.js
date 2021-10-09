@@ -35,6 +35,8 @@ export default function Images() {
                     key={index}
                     layoutId={index}>
                         <Image 
+                        createdAt={image.created_at}
+                        description={image.description}
                         show={() => setShowPreview(index)}
                         image={image.urls.small} 
                         handleRemove={handleRemove}
