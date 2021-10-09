@@ -27,7 +27,7 @@ export default function Login() {
         });
     }
 
-    if(isLoggedIn) return <Redirect to="/"/>
+    if(isLoggedIn) return <Redirect to="/gallery"/>
 
     return (
         <div className="flex h-screen">
