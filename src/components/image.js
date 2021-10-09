@@ -4,7 +4,7 @@ import useTFClassify from "../utils/hooks/useTFClassify";
 import Backdrop from './Backdrop';
 
 export default function Image({image, handleRemove, index, description, createdAt}) {
-    const date= createdAt.split('T')  // only get the date and cut out the time
+    const date= createdAt ? createdAt.split('T') : null // only get the date and cut out the time
     const imageRef =useRef()
     const [showPreview, setShowPreview] = useState(false)
     const { predict, predictions, setPredictions, isLoading } = useTFClassify();
@@ -37,7 +37,7 @@ export default function Image({image, handleRemove, index, description, createdA
                   exit={{ opacity: 0, rotate: -360, transition: { duration: 0.5 } }}
                   className="fixed w-full h-full flex justify-center items-center top-0 left-0 z-40" onClick={()=>setShowPreview(false)}>
                   <div className="bg-white text-black">
-                    <p className='bg-black text-white '>Created on {date[0]}</p>
+                    {date && <p className='bg-black text-white '>Created on {date[0]}</p>}
                     <img className='rounded-md  bg-black' onClick={()=>setShowPreview(false)} src={image} alt="" width='400' height='auto' />
                     <p className="bg-black text-white break-all break-word">{description}</p>
                   </div>
