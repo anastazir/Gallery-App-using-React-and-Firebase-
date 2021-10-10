@@ -16,3 +16,10 @@ export const getSavedImages=(userName)=>{
     savedImages= JSON.parse(savedImages)
     return savedImages
 }
+
+export const saveImageURL=(url, userName)=>{
+    let savedImages= localStorage.getItem(`savedImages${userName}`)
+    savedImages= JSON.parse(savedImages)
+    savedImages.push(url)
+    localStorage.setItem(`savedImages${userName}`, JSON.stringify(savedImages))
+}
