@@ -88,7 +88,7 @@ const Modal = ({ text, type, data, url }) => {
       exit="exit"
       align="center"
     >
-      <img className="rounded mx-auto" src={url} alt="" />
+      <img className="rounded mx-auto" src={url} alt="" style={{maxWidth:'75%'}}/>
       {data && 
         <ModalText data={data} text={text}/>
       }
