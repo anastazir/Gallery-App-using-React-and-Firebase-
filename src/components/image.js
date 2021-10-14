@@ -33,6 +33,7 @@ export default function Image({image, handleRemove, index, description, createdA
         <i className="fas fa-plus  absolute right-50 cursor-pointer opacity-25 hover:opacity-100 hidden" onClick={()=>{saveImageURL(image, userName)}}></i>
         <i className="fas fa-times absolute right-0 cursor-pointer opacity-25 hover:opacity-100 hidden" onClick={()=>{handleRemove(index)}} ></i>
         <i className="fas fa-search absolute left-0 cursor-pointer opacity-25 hover:opacity-100 hidden" onClick={()=>{predict(imageRef.current)}} ></i>
+        <i className="fa fa-clipboard absolute bottom-0 right-50 cursor-pointer opacity-25 hover:opacity-100 hidden" onClick={(e)=>navigator.clipboard.writeText(image)}></i>
         <img ref={imageRef} onClick={()=>setShowPreview(true)} src={image} alt="" width='100%' height='auto' crossOrigin='anonymous' />
       </div>
       <AnimatePresence>
