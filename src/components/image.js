@@ -13,7 +13,7 @@ export default function Image({image, handleRemove, index, description, createdA
   const imageRef =useRef()
   const [showPreview, setShowPreview] = useState(false)
   const { predict, predictions, setPredictions, isLoading } = useTFClassify();
-  description = description && description[50] ? description.substring(0, 50) + '...' : description
+
   return (
     <div>
       <div className="relative">
@@ -37,7 +37,7 @@ export default function Image({image, handleRemove, index, description, createdA
       </div>
       <AnimatePresence>
         {showPreview && 
-          <Backdrop onClick={()=>setShowPreview(false) }>
+          <Backdrop onClick={()=>setShowPreview(false)}>
             <Modal text={description} type='result' data={date} url={image} />             
           </Backdrop>
         }
