@@ -86,23 +86,24 @@ const Modal = ({ text, type, data, url }) => {
       initial="hidden"
       animate="visible"
       exit="exit"
+      align="center"
     >
-      <img src={url} alt="" />
+      <img className="rounded mx-auto" src={url} alt="" />
       {data && 
-        <ResultText data={data} />
+        <ModalText data={data} text={text}/>
       }
     </motion.div>
   );
 };
 
 
-const ResultText = ({data}) =>(
+const ModalText = ({data, text}) =>(
   <div >
-    <h3 className="result-text">Results</h3>
-    <div >
-      {data.map((object, i)=>{
-          return <li key={i} style={liStyle}> {object} </li>;
-      })}
+    <div>
+       <p style={liStyle}> {data[0]} </p>
+       <p style={{
+         wordWrap: 'break-word'
+       }}>{text}</p>
     </div>
   </div>
 )
