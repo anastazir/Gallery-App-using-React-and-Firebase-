@@ -81,7 +81,7 @@ const Modal = ({ text, type, data, url }) => {
   return (
     <motion.div
       onClick={(e) => e.stopPropagation()}   
-      className="fixed top-40"
+      className="fixed top-20"
       variants={result}
       initial="hidden"
       animate="visible"
@@ -102,7 +102,7 @@ const ModalText = ({data, text}) =>(
     <div>
        <p style={liStyle}> {data[0]} </p>
        <p style={{
-         wordWrap: 'break-word'
+         wordWrap:'break-word'
        }}>{text}</p>
     </div>
   </div>
