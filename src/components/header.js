@@ -27,9 +27,9 @@ export default function Header() {
             <li className="mr-5">
               <NavLink exact={true} activeClassName="underline text-blue-200" to="/gallery">Gallery</NavLink>
             </li>
-            <li className="mr-5">
+            {/* <li className="mr-5">
               <NavLink exact={true} activeClassName="underline text-blue-200" to="/tensorflow">Tensorflow</NavLink>
-            </li>
+            </li> */}
             </span>
             <span className="flex">
             <li className="mr-5">
