@@ -48,6 +48,10 @@ function ShowImage(){
         window.scrollTo({top:0,behavior:'smooth'})
     }
 
+    function scrollToBottom(){
+        window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+    }
+
     function handleInputChange(e){
         newSearchText= (e.target.value)
     }
@@ -68,9 +72,11 @@ function ShowImage(){
         {
         isLoading?<i className="fas fa-circle-notch fa-spin text-7xl" ></i>: (
             <div>
-                <div className='w-7 h-7 rounded-2xl fab-con-top' onClick={scrollToTop}>
-                    <i className='align-middle fas fa-arrow-up text-2xl cursor-pointer'></i>
+                <div className='w-7 h-7  fab-con-top bg-transparent' >
+                    <i className='align-middle bg-white rounded-2xl fas fa-arrow-up text-2xl cursor-pointer' onClick={scrollToTop}></i>
+                    <i className='my-2 align-middle bg-white rounded-2xl fas fa-arrow-down text-2xl cursor-pointer' onClick={scrollToBottom}></i>
                 </div>
+                
                 <button className='p-1 bg-green-600 text-white' onClick={() =>setPage(page+1)}>Load More?</button>
                 <div className='flex justify-between my-5'>
                     <div className='w-full'>
