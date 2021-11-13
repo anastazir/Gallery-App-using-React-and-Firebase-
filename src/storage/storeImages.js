@@ -23,3 +23,8 @@ export const saveImageURL=(url, userName)=>{
     savedImages.push(url)
     localStorage.setItem(`savedImages${userName}`, JSON.stringify(savedImages))
 }
+
+export const saveRecentImagesURL=(imageArray)=>{
+    localStorage.setItem(`recentImages`, JSON.stringify(imageArray))
+    console.log('array saved');
+}
