@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router'
+import { Navigate  } from 'react-router'
 import firebase from '../config/firebase'
 export default function Login() {
     const [isLoading, setIsLoading] = useState(false) 
@@ -27,7 +27,7 @@ export default function Login() {
         });
     }
 
-    if(isLoggedIn) return <Redirect to="/gallery"/>
+    if(isLoggedIn) return <Navigate  to="/gallery"/>
 
     return (
         <div className="flex h-screen">

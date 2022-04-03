@@ -1,11 +1,11 @@
 import React from "react";
 import firebase from "../config/firebase";
-import { useHistory } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 import {  Formik, Form, ErrorMessage, Field } from "formik";
 import * as Yup from "yup";
 
 export default function SignUp() {
-  const history = useHistory();
+  const history = useNavigate ();
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
