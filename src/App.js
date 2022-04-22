@@ -33,13 +33,13 @@ function App(){
       <AppContext.Provider value={[isLoggedIn,user]}>
         <Header/>
         <Routes>
-          <Route path="/" exact element={<Home/>}/>
-          <Route path="/gallery" exact element={<Gallery/>}/>
-          <Route path="/user" exact element={<User/>}/>
-          <Route path="/login" exact element={<Login/>}/>
-          <Route path="/signUp" exact element={<SignUp/>}/>
-          <Route path="/user" exact element={() => (!user ? <User /> : <Navigate  to="/login" />)}/>
-          <Route path="*" exact element={<NotFound/>} />
+          <Route path="/" exact = {`${true}`} element={<Home/>}/>
+          <Route path="/gallery" exact = {`${true}`} element={<Gallery/>}/>
+          <Route path="/user" exact = {`${true}`} element={<User/>}/>
+          <Route path="/login" exact = {`${true}`} element={<Login/>}/>
+          <Route path="/signUp" exact = {`${true}`} element={<SignUp/>}/>
+          <Route path="/user" exact = {`${true}`} element={() => (!user ? <User /> : <Navigate  to="/login" />)}/>
+          <Route path="*" exact = {`${true}`} element={<NotFound/>} />
         </Routes>
       </AppContext.Provider>
     </Router>
