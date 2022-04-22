@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { AnimateSharedLayout, motion } from "framer-motion";
+import {useNavigate } from 'react-router-dom';
 
 import Image from '../components/image'
 import AppContext from "../store/AppContext";
@@ -8,7 +9,7 @@ import {addToLocalStorage, checkLocalStorage, getSavedImages} from "../storage/s
 let newSearchImage=''
 
 export default function User() {
-
+    const history = useNavigate ();
     const [isLoggedIn,user] = useContext(AppContext)
     const userName= user.email? (user.email.substring(0, user.email.indexOf("@"))) : null;
     
@@ -17,6 +18,10 @@ export default function User() {
     
     const [showPreview, setShowPreview] = useState(false);
     const inputRef = useRef(null)
+
+    if(!isLoggedIn){
+        history("/", {replace:true})
+    }
     
     function handleRemove(index){
         setImages(Images.filter((image,i)=>i!==index))
