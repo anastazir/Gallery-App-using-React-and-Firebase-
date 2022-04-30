@@ -33,6 +33,7 @@ function ShowImage(){
                 key={index}
                 layoutId={index}>
                 <Image 
+                imageId = {image.id}
                 createdAt={image.created_at}
                 description={image.description}
                 show={() => setShowPreview(index)}
