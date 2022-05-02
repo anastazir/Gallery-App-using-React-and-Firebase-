@@ -6,7 +6,7 @@ import AppContext from "../store/AppContext";
 import Modal from '../components/modal';
 import {downloadImage} from "../utils/helper/downloadImage";
 
-export default function Image({image, handleRemove, index, description, createdAt, imageId}) {
+export default function Image({image, handleRemove, index, description, createdAt, imageId, imageLarge}) {
   const [isLoggedIn,user] = useContext(AppContext)
   const userName= user.email? (user.email.substring(0, user.email.indexOf("@"))) : null;
   const date= createdAt ? createdAt.split('T') : null // only get the date and cut out the time
@@ -17,7 +17,7 @@ export default function Image({image, handleRemove, index, description, createdA
   return (
     <div>
       <div className="relative">
-        <i className="fas fa-download  absolute right-50 cursor-pointer opacity-25 hover:opacity-100 hidden" onClick={()=>{downloadImage(image, imageId)}} ></i>
+        <i className="fas fa-download  absolute right-50 cursor-pointer opacity-25 hover:opacity-100 hidden" onClick={()=>{downloadImage(imageLarge, imageId)}} ></i>
         <i className="fas fa-plus  absolute left-0 cursor-pointer opacity-25 hover:opacity-100 hidden" onClick={()=>{saveImageURL(image, userName)}}></i>
         <i className="fas fa-times absolute right-0 cursor-pointer opacity-25 hover:opacity-100 hidden" onClick={()=>{handleRemove(index)}} ></i>
         <i className="fa fa-clipboard absolute bottom-0 right-50 cursor-pointer opacity-25 hover:opacity-100 hidden" onClick={(e)=>navigator.clipboard.writeText(image)}></i>
@@ -26,7 +26,7 @@ export default function Image({image, handleRemove, index, description, createdA
       <AnimatePresence>
         {showPreview && 
           <Backdrop onClick={()=>setShowPreview(false)}>
-            <Modal text={description} type='result' data={date} url={image} />             
+            <Modal imageId={imageId} text={description} type='result' data={date} url={imageLarge} />             
           </Backdrop>
         }
       </AnimatePresence>

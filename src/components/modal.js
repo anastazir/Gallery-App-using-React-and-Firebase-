@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useNavigate  } from "react-router-dom";
 
 const liStyle = {
   margin: 'auto',
@@ -7,27 +8,6 @@ const liStyle = {
   fontSize: '130%',
     whiteSpace: "nowrap"
 }
-
-const dropIn = {
-  hidden: {
-    y: "-100vh",
-    opacity: 0,
-  },
-  visible: {
-    y: "0",
-    opacity: 1,
-    transition: {
-      duration: 0.1,
-      type: "spring",
-      damping: 25,
-      stiffness: 500,
-    },
-  },
-  exit: {
-    y: "100vh",
-    opacity: 0,
-  },
-};
 
 const result = {
   hidden: {
@@ -53,42 +33,18 @@ const result = {
   },
 };
 
-const flip = {
-  hidden: {
-    transform: "scale(0) rotate(720deg)",
-    opacity: 0,
-    transition: {
-      delay: 0.3,
-    },
-  },
-  visible: {
-    transform: " scale(1) rotate(0deg)",
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-    },
-  },
-  exit: {
-    transform: "scale(0) rotate(-720deg)",
-    opacity: 0,
-    transition: {
-      duration: 0.3,
-    },
-  },
-};
-
-const Modal = ({ text, type, data, url }) => {
+const Modal = ({ text, type, data, url, imageId }) => {
+  const history = useNavigate();
   return (
     <motion.div
-      onClick={(e) => e.stopPropagation()}   
-      className="fixed top-20"
+    style={{maxWidth:"600px"}}
       variants={result}
       initial="hidden"
       animate="visible"
       exit="exit"
       align="center"
     >
-      <img className="rounded mx-auto" src={url} alt="" style={{maxWidth:'75%'}}/>
+      <img className="rounded img_modal " src={url} alt="" style={{maxHeight:"600px"}}/>
       {data && 
         <ModalText data={data} text={text}/>
       }

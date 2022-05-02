@@ -39,6 +39,7 @@ function ShowImage(){
                 show={() => setShowPreview(index)}
                 image={image.urls.small} 
                 handleRemove={handleRemove}
+                imageLarge = {image.urls.regular}
                 index={index}/>
             </motion.div>))}
         </AnimateSharedLayout>      
