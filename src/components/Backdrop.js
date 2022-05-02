@@ -6,7 +6,7 @@ const Backdrop = ({ children, onClick }) => {
     position: 'fixed',
     top: '0',
     left: '0',
-    height: `${window.scrollY+1500}px`,
+    height: '100%',
     width: '100%',
     background: '#000000e1',
     display: 'flex',
