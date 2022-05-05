@@ -16,29 +16,38 @@ export default function Header() {
     })
   }
   return (
-    <nav className='py-5 sticky top-0 z-10 bg-black'>
-      <ul className="flex justify-between px-10">
+    <nav className='py-5 sticky top-0 z-10 bg-black   '>
+      <ul className="flex justify-between items-center sm:flex-wrap">
         <span className="flex">
           <li  className="mr-5">
-            <NavLink exact={true} className={(navData) => (navData.isActive ? "underline text-blue-200" : 'none')} to="/">Home</NavLink>
+            <NavLink exact={true} className={(navData) => (navData.isActive ? "text-blue-200" : 'none')} to="/">
+              <i class="fa fa-home" aria-hidden="true"></i> Home
+            </NavLink>
           </li>
           <li className="mr-5">
-            <NavLink exact={true} className={(navData) => (navData.isActive ? "underline text-blue-200" : 'none')} to="/gallery">Gallery</NavLink>
+            <NavLink exact={true} className={(navData) => (navData.isActive ? "text-blue-200" : 'none')} to="/gallery">
+              <i class="fa fa-picture-o" aria-hidden="true"></i> Gallery
+            </NavLink>
           </li>
-          {/* <li className="mr-5">
-            <NavLink exact={true} className={(navData) => (navData.isActive ? "underline text-blue-200" : 'none')} to="/tensorflow">Tensorflow</NavLink>
-          </li> */}
         </span>
         <span className="flex">
           <li className="mr-5">
             {
-              isLoggedIn ? ([<button className="mx-5" onClick={logout}>Logout</button>,
-              <NavLink exact={true} className={(navData) => (navData.isActive ? "underline text-blue-200" : 'none')} to="/user">{userName}</NavLink>]):(<NavLink exact={true} activeClassName="underline text-blue-200" to="/login">Login</NavLink>)
+              isLoggedIn ? ([<button className="mx-5" onClick={logout}> <i class="fa fa-sign-in" aria-hidden="true"></i> Logout</button>,
+              <NavLink exact={true} className={(navData) => (navData.isActive ? " text-blue-200" : 'none')} to="/user">
+                <i class="fa fa-user" aria-hidden="true"></i> {userName}
+              </NavLink>]):(
+              <NavLink exact={true} activeClassName="underline text-blue-200" to="/login">
+              <i class="fa fa-sign-in" aria-hidden="true"></i>  Login
+              </NavLink>)
             }
           </li>
           <li>
             {
-              isLoggedIn? null :(<NavLink exact={true} className={(navData) => (navData.isActive ? "underline text-blue-200" : 'none')} to="/signup" >Sign up</NavLink>)
+              isLoggedIn? null :(
+              <NavLink exact={true} className={(navData) => (navData.isActive ? "underline text-blue-200" : 'none')} to="/signup" >
+                <i class="fa fa-sign-in" aria-hidden="true"></i>Sign up
+              </NavLink>)
             }
           </li>
         </span>
