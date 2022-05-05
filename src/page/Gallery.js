@@ -6,7 +6,7 @@ export default function Gallery() {
         <section className="flex justify-center">
             <div className="w-5/2" >
                 <div className="text-center">
-                    <div className="my-4">Gallery</div>
+                    <div className="my-4 text-3xl">Gallery</div>
                     <Images />
                 </div>
             </div>
