@@ -21,24 +21,24 @@ export default function Header() {
         <span className="flex">
           <li  className="mr-5">
             <NavLink exact={true} className={(navData) => (navData.isActive ? "text-blue-200" : 'none')} to="/">
-              <i class="fa fa-home" aria-hidden="true"></i> Home
+              <i className="fa fa-home" aria-hidden="true"></i> Home
             </NavLink>
           </li>
           <li className="mr-5">
             <NavLink exact={true} className={(navData) => (navData.isActive ? "text-blue-200" : 'none')} to="/gallery">
-              <i class="fa fa-picture-o" aria-hidden="true"></i> Gallery
+              <i className="fa fa-picture-o" aria-hidden="true"></i> Gallery
             </NavLink>
           </li>
         </span>
         <span className="flex">
           <li className="mr-5">
             {
-              isLoggedIn ? ([<button className="mx-5" onClick={logout}> <i class="fa fa-sign-in" aria-hidden="true"></i> Logout</button>,
+              isLoggedIn ? ([<button className="mx-5" onClick={logout}> <i className="fa fa-sign-in" aria-hidden="true"></i> Logout</button>,
               <NavLink exact={true} className={(navData) => (navData.isActive ? " text-blue-200" : 'none')} to="/user">
-                <i class="fa fa-user" aria-hidden="true"></i> {userName}
+                <i className="fa fa-user" aria-hidden="true"></i> {userName}
               </NavLink>]):(
               <NavLink exact={true} activeClassName="underline text-blue-200" to="/login">
-              <i class="fa fa-sign-in" aria-hidden="true"></i>  Login
+              <i className="fa fa-sign-in" aria-hidden="true"></i>  Login
               </NavLink>)
             }
           </li>
@@ -46,7 +46,7 @@ export default function Header() {
             {
               isLoggedIn? null :(
               <NavLink exact={true} className={(navData) => (navData.isActive ? "underline text-blue-200" : 'none')} to="/signup" >
-                <i class="fa fa-sign-in" aria-hidden="true"></i>Sign up
+                <i className="fa fa-sign-in" aria-hidden="true"></i>Sign up
               </NavLink>)
             }
           </li>
