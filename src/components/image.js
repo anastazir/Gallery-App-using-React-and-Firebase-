@@ -7,12 +7,11 @@ import Modal from '../components/modal';
 import {downloadImage} from "../utils/helper/downloadImage";
 
 export default function Image({image, handleRemove, index, description, createdAt, imageId, imageLarge}) {
-  const [isLoggedIn,user] = useContext(AppContext)
+  const user = useContext(AppContext)[1];
   const userName= user.email? (user.email.substring(0, user.email.indexOf("@"))) : null;
   const date= createdAt ? createdAt.split('T') : null // only get the date and cut out the time
   const imageRef =useRef()
   const [showPreview, setShowPreview] = useState(false)
-
 
   return (
     <div>
@@ -26,7 +25,7 @@ export default function Image({image, handleRemove, index, description, createdA
       <AnimatePresence>
         {showPreview && 
           <Backdrop onClick={()=>setShowPreview(false)}>
-            <Modal imageId={imageId} text={description} type='result' data={date} url={imageLarge} />             
+            <Modal imageId={imageId} text={description} type='result' data={date} url={imageLarge ? imageLarge : image} />             
           </Backdrop>
         }
       </AnimatePresence>
