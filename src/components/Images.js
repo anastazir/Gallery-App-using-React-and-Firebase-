@@ -3,6 +3,7 @@ import { useEffect, useState,useRef } from "react";
 import Image from "../components/image"
 import useFetchImage from "../utils/hooks/useFetchImage";
 import { AnimateSharedLayout, motion } from "framer-motion";
+import CircleLoader from './CircularLoader';
 let newSearchText=null;
 export default function Images() {
     const [page,setPage]=useState(1)
@@ -72,7 +73,7 @@ function ShowImage(){
     <section>
         <ShowImage/>
         {
-        isLoading?<i className="fas fa-circle-notch fa-spin text-7xl" ></i>: (
+        isLoading?<CircleLoader/>: (
             <div>
                 <div className='w-7 h-7  fab-con-top ' >
                     <i className='align-middle  rounded-2xl  fa fa-arrow-up text-2xl cursor-pointer' onClick={scrollToTop}></i>
