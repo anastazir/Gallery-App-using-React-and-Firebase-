@@ -19,6 +19,12 @@ export default function User() {
     const [showPreview, setShowPreview] = useState(false);
     const inputRef = useRef(null)
 
+    const AnimationSettings = {
+        transition: { duration: 0.5 },
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -20 }
+    };
     if(!isLoggedIn){
         history("/", {replace:true})
     }
@@ -71,23 +77,13 @@ export default function User() {
     }
 
     return (
-        <div>
-           <ShowImage/>
-           <div className='flex justify-between my-5'>
-                <div className='w-full'>
-                    <input
-                    autoComplete='off'
-                    placeholder='             Enter Query'
-                    className='p-2 border-gray-800 shadow rounded bg-black w-full text-center'
-                    ref={inputRef}
-                    id='inputBox'  
-                    type='text'  
-                    onChange={handleInputChange}></input>
+        <motion.div {...AnimationSettings}>
+            <section className="flex justify-center">
+                <div className="w-5/2" >
+                    <div className="text-center">
+                        <ShowImage />
+                    </div>
                 </div>
-                <div>
-                    <button className='p-1 bg-green-600 text-white  ' onClick={handleAdd}>Add</button>
-                </div>
-            </div>
         </div>
     )
 }
