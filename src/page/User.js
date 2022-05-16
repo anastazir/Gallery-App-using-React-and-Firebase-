@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AnimateSharedLayout, motion } from "framer-motion";
 import {useNavigate } from 'react-router-dom';
 
@@ -6,18 +6,16 @@ import Image from '../components/image'
 import AppContext from "../store/AppContext";
 import {addToLocalStorage, checkLocalStorage, getSavedImages} from "../storage/storeImages";
 
-let newSearchImage=''
 
 export default function User() {
     const history = useNavigate ();
     const [isLoggedIn,user] = useContext(AppContext)
     const userName= user.email? (user.email.substring(0, user.email.indexOf("@"))) : null;
-    
+
     const [Images, setImages] = useState(['https://images.unsplash.com/photo-1616818400884-1c4f3d4d003c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTYyOTB8MHwxfGFsbHw4fHx8fHx8Mnx8MTYxNjg1ODY3OQ&ixlib=rb-1.2.1&q=80&w=400',
     'https://images.unsplash.com/photo-1616156104743-0ed6f123d8b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTYyOTB8MHwxfGFsbHw5fHx8fHx8Mnx8MTYxNjg1ODY3OQ&ixlib=rb-1.2.1&q=80&w=400','https://images.unsplash.com/photo-1616841888027-89693dec0827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTYyOTB8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MTY4NTg2Nzk&ixlib=rb-1.2.1&q=80&w=400','https://images.unsplash.com/photo-1616732227193-6d556628ede1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTYyOTB8MHwxfGFsbHwxMnx8fHx8fDJ8fDE2MTY4NTkxMDM&ixlib=rb-1.2.1&q=80&w=400'])
-    
+
     const [showPreview, setShowPreview] = useState(false);
-    const inputRef = useRef(null)
 
     const AnimationSettings = {
         transition: { duration: 0.5 },
@@ -34,7 +32,6 @@ export default function User() {
     }
 
     useEffect(() => {
-        inputRef.current.focus()
         if (!checkLocalStorage()) {
             setImages(getSavedImages(userName))
         }else{
@@ -45,15 +42,10 @@ export default function User() {
     useEffect(() => {
         addToLocalStorage(Images, userName)
     },[Images])
-    
-    function handleInputChange(e){
-        newSearchImage=e.target.value
-    }
 
-    function handleAdd(){
-        setImages([...Images,newSearchImage])
-        inputRef.current.value=''
-    }
+    window.addEventListener('storage', () => {
+        setImages(getSavedImages(userName))
+    });
 
     function ShowImage(){
         return (
@@ -84,6 +76,7 @@ export default function User() {
                         <ShowImage />
                     </div>
                 </div>
-        </div>
+            </section>
+        </motion.div>
     )
 }
