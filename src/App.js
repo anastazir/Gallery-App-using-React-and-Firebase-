@@ -10,6 +10,7 @@ import Gallery from './page/Gallery';
 import User from './page/User';
 import Login from './page/Login';
 import SignUp from './page/SignUp';
+import { AnimatePresence } from 'framer-motion';
 
 function App(){
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -32,15 +33,17 @@ function App(){
     <Router>
       <AppContext.Provider value={[isLoggedIn,user]}>
         <Header/>
-        <Routes>
-          <Route path="/" exact = {`${true}`} element={<Home/>}/>
-          <Route path="/gallery" exact = {`${true}`} element={<Gallery/>}/>
-          <Route path="/user" exact = {`${true}`} element={<User/>}/>
-          <Route path="/login" exact = {`${true}`} element={<Login/>}/>
-          <Route path="/signUp" exact = {`${true}`} element={<SignUp/>}/>
-          <Route path="/user" exact = {`${true}`} element={() => (!user ? <User /> : <Navigate  to="/login" />)}/>
-          <Route path="*" exact = {`${true}`} element={<NotFound/>} />
-        </Routes>
+        <AnimatePresence>
+          <Routes>
+            <Route path="/" exact = {`${true}`} element={<Home/>}/>
+            <Route path="/gallery" exact = {`${true}`} element={<Gallery/>}/>
+            <Route path="/user" exact = {`${true}`} element={<User/>}/>
+            <Route path="/login" exact = {`${true}`} element={<Login/>}/>
+            <Route path="/signUp" exact = {`${true}`} element={<SignUp/>}/>
+            <Route path="/user" exact = {`${true}`} element={() => (!user ? <User /> : <Navigate  to="/login" />)}/>
+            <Route path="*" exact = {`${true}`} element={<NotFound/>} />
+          </Routes>
+        </AnimatePresence>
       </AppContext.Provider>
     </Router>
   )
