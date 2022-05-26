@@ -13,10 +13,6 @@ export default function Images() {
     const [showPreview, setShowPreview] = useState(false);
 
     useEffect(() => {
-        inputRef.current.focus()
-    }, [])
-
-    useEffect(() => {
         console.log('in useeffect errors');
         console.log(errors);
     }, [errors])
@@ -43,7 +39,7 @@ function ShowImage(){
                 imageLarge = {image.urls.regular}
                 index={index}/>
             </motion.div>))}
-        </AnimateSharedLayout>      
+        </AnimateSharedLayout>     
     </div>)
     }
 
